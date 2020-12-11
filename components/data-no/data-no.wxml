@@ -1,0 +1,9 @@
+<view class="public-no-data">
+	<image src="{{src}}"/>
+	<view>
+		{{desc}}
+	</view>
+	<view class="go-order-btn" bindtap="golist" wx:if="{{type}}" data-type="{{type}}">
+		去下单
+	</view>
+</view>

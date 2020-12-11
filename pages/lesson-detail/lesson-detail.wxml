@@ -1,0 +1,161 @@
+<authorize bindgetinfoBack="getinfoBack" bindishowBack="ishowBack" ishow="{{ishow}}" />
+<view class="lession-top">
+	<image src="{{lessonDetail.image_input}}"></image>
+	<view class="opacity-c">
+		<view class="mul-font lession-title">
+			<block wx:if="{{isBuy2}}">
+				<!-- 最近学到：第一章 01 : 从0到1怎么克服攀岩恐惧心 -->
+				<video class="c-video" autoplay="{{isAutoplay}}" id="myVideo" initialTime="{{initialTime}}" bindplay="onPlay" bindtimeupdate="onTimeUpdate" src="{{videoSrc}}" controls></video>
+				<!-- {{curtitle}} -->
+			</block>
+			<block wx:else>
+				啊哦～你还未购买本章课程哦～
+			</block>
+		</view>
+		<view wx:if="{{!isBuy2 && lessonDetail.status_name !='已下架'}}" data-id="{{lessonDetail.id}}" bindtap="goBuy" class="buy-btn">
+			立即购买
+		</view>
+		<view wx:else="{{!isBuy2 && lessonDetail.status_name =='已下架'}}" class="buy-btn" style="border:1rpx solid #666;color:#fff;">
+			已下架
+		</view>
+	</view>
+</view>
+
+<view class="switchMode">
+	<image wx:if="{{lessonDetail.is_text}}" class="text" bindtap="goText" src="{{static+'/text-model@2x.png'}}"></image>
+	<image wx:if="{{lessonDetail.is_audio}}" class="ear" bindtap="goListen" src="{{static+'/ear-model@2x.png'}}"></image>
+</view>
+
+
+<view class="public-bg">
+	<view class="flex-row-between tab-c">
+		<view bindtap="switchTab" data-id="{{0}}" class="{{tabId?'':'active'}}">详情</view>
+		<view wx:if="{{lessonDetail.type==1}}" bindtap="switchTab" data-id="{{1}}" class="{{tabId?'active':''}}">内容</view>
+	</view>
+</view>
+<block wx:if="{{!tabId}}">
+	<view class="public-bg">
+		<view class="detial-content-c">
+			<view class="title">
+				{{lessonDetail.title}}
+			</view>
+			<view class="price">
+				{{lessonDetail.price}}
+			</view>
+			<view class="desc wx:if='{{limit  ? '' : 'desc-limit'}}'">
+				<text class="desc-mul mul wx:if='{{showMore  ? 'mul-more' : ''}}'">{{descContent}}</text>
+				<!-- <rich-text nodes="{{lessonDetail.content}}"></rich-text> -->
+				<text wx:if="{{showMore }}" bindtap="showMore" class="more">更多</text>
+			</view>
+		</view>
+	</view>
+	<view class="discuss-c">
+		<view class="discuss-nums">全部评论( {{count}} 条）</view>
+		<view wx:if="{{count==0}}" class="no-discuss">
+			<image src="{{static+'/no-discuss.png'}}"></image>
+			<text>
+				暂无评论
+			</text>
+		</view>
+		<block wx:else>
+			<block wx:for="{{comment}}" wx:key="index">
+				<view class="flex-row-between-t discuss-item">
+					<view class="item-l">
+						<image class="user-icon" src="{{item.avatar}}"></image>
+						<!-- <image class="user-sign" src="{{static+'/vip-sign.png'}}"></image> -->
+					</view>
+					<view class="item-r">
+						<view class="user-name">{{item.nickname}}</view>
+						<view class="discuss-content">
+							{{item.comment}}
+						</view>
+						<view class="discuss-time">{{item.add_time}}</view>
+					</view>
+				</view>
+			</block>
+		</block>
+	</view>
+	<block wx:if="{{count!=0}}">
+	<view  class="more-data">
+		<view wx:if="{{!over && !moreDiscuss}}" class="public-bg">
+			<image class="user-icon load-more-icon" bindtap="getMoreDiscuss" src="{{static+'/more.png'}}"></image>
+		</view>
+		<view wx:if="{{!over &&  moreDiscuss}}" class="no-get-more">
+			数据加载中~
+		</view>
+
+	</view>
+	<view wx:if="{{over}}" class="no-get-more">
+			吼吼，没有更多评价了～
+		</view>
+</block>
+</block>
+<block wx:else>
+	<block wx:for="{{chapter}}" wx:key="index">
+		<view data-id="{{item.id}}" bindtap="tapLesson" class="single-font item-lession {{item.active ? 'l-active':''}} ">
+			{{item.name}} <text wx:if="{{item.free==1 && !isBuy}}" class="free-tag">试看</text>
+		</view>
+	</block>
+</block>
+
+<!-- <view class=" wx:if='{{isBuy ? '' :'fixed-bottom-bottom'}}'"></view> -->
+<view class="fixed-bottom-bottom"></view>
+<view class="ipx-height"></view>
+<view class="fixed-bottom"> 
+	<view class="public-line"></view>
+	<view class="fill">
+		<view wx:if="{{!isBuy && lessonDetail.status_name !='已下架'}}" data-id="{{lessonDetail.id}}" bindtap="goBuy" class="buy-btn-big">
+			立即购买
+		</view>
+		<view wx:elif="{{lessonDetail.status_name=='已下架'}}"  style="background:#666;" class="buy-btn-big">
+			已下架
+		</view>
+		<view wx:else class="flex-row-between-start buyed-discuss-form">
+			<view class="flex-row-start  form-l">
+				<image wx:if="{{!avatar}}" class="form-user-icon form-user-icon-before" src="{{static+'/account-icon-a.png'}}"></image>
+				<image wx:if="{{avatar}}" class="form-user-icon form-user-icon-before" src="{{avatar}}"></image>
+				<view class="input-textarea-before" bindtap="openInput">说点什么吧～</view>
+				<!-- <textarea bindblur="blurTextarea" value="{{usercomment}}" class="form-l input-text input-textarea"
+					placeholder="说点什么吧～" auto-height="{{true}}" /> -->
+				</view>
+    <view class="flex-row-start form-r">
+			<block wx:if="{{!isLike}}">
+				<view bindtap="collect" data-like="{{false}}" class="form-r-item">
+					<image  class="like-icon" src="{{static+'/like-un.png'}}"></image>
+					<text>收藏</text>
+				</view>
+			</block>
+			<block wx:else>
+				<view bindtap="collect" data-like="{{true}}" class="form-r-item">
+					<image  class="like-icon" src="{{static+'/like-icon.png'}}"></image>
+					<text class="collect-color">已收藏</text>
+				</view>
+			</block>
+			<button  open-type='share' size="mini" class="form-r-item">
+      <!-- <view bindtap="share" > -->
+      	<image class="share-icon" src="{{static+'/share.png'}}"></image>
+        <text>分享</text>
+			<!-- </view> -->
+			</button>
+    </view>
+  </view> 
+</view>
+</view>
+
+<view class="footer-height"></view>
+<view class="page-input-bg" catchtap="cancelInput" wx:if="{{realInput}}"></view>
+<view class="page-input-b"  catchtap="cancelInput" wx:if="{{realInput}}">
+	<view>
+		
+		<!-- bindblur="blurOffTextarea"  -->
+		<!-- 点击完成 后提交数据 -->
+		<textarea cursor-spacing="{{20}}" fixed="{{true}}" focus="{{focustrue}}" auto-focus="{{focustrue}}" bindconfirm="blurTextarea"  value="{{usercomment}}" class="form-l input-text input-textarea real-input"
+					placeholder="好评会优先展示" auto-height="{{true}}" />
+	</view>
+</view>
+
+
+	
+
+
+<loading isLoading="{{isLoading}}"/>

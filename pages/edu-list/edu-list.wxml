@@ -1,0 +1,5 @@
+<view wx:for="{{list}}" wx:key="index" class="list-c">
+  <item-edu bindgetInfo="godetail" item="{{item}}"/>
+</view>
+<loading isLoading="{{isLoading}}"/>
+<data-over over="{{over}}"/>

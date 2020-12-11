@@ -1,0 +1,100 @@
+<view class="input-item">
+	<view class="item-title">
+		姓名
+	</view>
+	<view class="input-c">
+		<input type="text" class="input" placeholder-class="placeholder" data-name="name" bindblur="inputWatch" value="{{joinInfo.name}}"
+			placeholder="输入姓名" />
+	</view>
+</view>
+<view class="input-item">
+	<view class="item-title">
+		性别(<text class="danger">*</text>必填)
+	</view>
+	<view class="input-c select-sex-c">
+		<view class="sex-item {{w=='/w-a.png' ?'sex-item-active' :''}}" bindtap="sex" data-id="{{2}}">
+			<image src="{{static+w}}"></image>
+			<text>女</text>
+		</view>
+		<view class="sex-item {{w=='/w-un.png' ?'sex-item-active' : ''}}" bindtap="sex" data-id="{{1}}">
+			<image src="{{static+m}}"></image>
+			<text>男</text>
+		</view>
+	</view>
+</view>
+
+<view class="input-item">
+	<view class="item-title">
+		身份证号(<text class="danger">*</text>必填)
+	</view>
+	<view class="input-c">
+		<input type="idcard" class="input" placeholder-class="placeholder" data-name="idcard" bindblur="inputWatch" value="{{joinInfo.idcard}}"
+			placeholder="输入18位身份证号" />
+	</view>
+</view>
+
+<view class="input-item">
+	<view class="item-title">
+		从事职业(<text class="danger">*</text>必填)
+	</view>
+	<view class="input-c">
+		<input type="text" class="input" placeholder-class="placeholder" data-name="profession" bindblur="inputWatch"
+			value="{{joinInfo.profession}}" placeholder="输入职业" />
+	</view>
+</view>
+
+<view class="input-item">
+	<view class="item-title">
+		联系电话(<text class="danger">*</text>必填)
+	</view>
+	<view class="input-c">
+		<input type="text" class="input" placeholder-class="placeholder" data-name="mobile" bindblur="inputWatch" value="{{joinInfo.mobile}}"
+			placeholder="输入电话号码" />
+	</view>
+</view>
+
+<view class="input-item">
+	<view class="item-title">
+		邮箱(<text class="danger">*</text>必填)
+	</view>
+	<view class="input-c">
+		<input type="text" class="input" placeholder-class="placeholder" data-name="email" bindblur="inputWatch" value="{{joinInfo.email}}"
+			placeholder="输入邮箱"/>
+	</view>
+</view>
+
+<view class="input-item" style="border-bottom:0">
+	<view class="item-title">
+		备注(非必填）
+	</view>
+	<view class="input-c">
+		<textarea class="textarea" data-name="user_remark" bindblur="inputWatch" value="{{joinInfo.user_remark}}"
+			placeholder="如果需要请填写备注信息，如疾病史，曾探险经历等等（60字符以内" />
+		</view>
+</view>
+
+<view class="agrren-c">
+	<checkbox-group bindchange="checkboxChange">
+		<checkbox value="{{joinInfo.isAgree}}" checked="{{joinInfo.isAgree}}"/>
+	</checkbox-group>
+		<view bindtap="showAgrren">
+			我已同意<view class="xieyi">《报名相关协议》</view>
+		</view>
+	
+</view>
+<view class="ipx-height"></view>
+<view class="next-btn-c-bottom"></view>
+<view class="ipx-footer"></view>
+<view class="next-btn-c">
+	<view bindtap="buy" class="next-btn">立即报名</view>
+</view>
+
+<view class="zhe" wx:if="{{isSuccess}}">
+	<view class="successalert">
+		<image src="{{static + '/success.png'}}"></image>
+		<view class="title">资料提交成功</view>
+		<view class="message">我们将在1-2工作日跟您联系</view>
+		<text class="know" bindtap="goWhere">我知道了</text>
+	</view>
+</view>
+<loading isLoading="{{isLoading}}" />

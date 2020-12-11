@@ -1,0 +1,57 @@
+<view class="order-info">
+	<view class="sign">
+		商品信息
+	</view>
+	<view class="flex-row-between-t2  order-m">
+		<image class="goods-image" src="{{detail.lesson_img}}"></image>
+		<view class="goods-info">
+			<view class="title">
+				{{detail.lesson_name}}
+			</view>
+			<view class="price">
+				¥{{detail.order_money}}
+			</view>
+		</view>
+	</view>
+	<view class="flex-row-between jifen">
+		<view class="jifen-title">奖励积分</view>
+		<view class="jifen-num">+ {{detail.give_integral}}</view>
+	</view>
+	<view class="flex-row-between item-f">
+		<view class="l">商品应付金额：</view>
+		<view class="r">¥{{detail.order_money}}</view>
+	</view>
+	<!-- <view class="flex-row-between item-f">
+		<view class="l">商品已用优惠：无可用优惠券</view>
+		<view class="r">¥{{detail.order_money}}</view>
+	</view> -->
+	<view class="flex-row-between item-f item-g ">
+		<view class="g-l">商品实付金额：</view>
+		<view class="g-r">¥{{detail.order_money}}</view>
+	</view>
+
+	<block wx:if="{{order}}">
+
+		<view wx:if="{{!cancelOrder}}" class="flex-row-between jifen" style="border-top:0">
+			<view class="jifen-num">支付方式：</view>
+			<view class="jifen-num">微信</view>
+		</view>
+    <view class="flex-row-between item-f">
+		<view class="l">订单编号：{{detail.order_id}}</view>
+		<view bindtap="copy" data-id="{{detail.order_id}}" class="r copy-order-num">复制单号</view>
+	</view>
+  <view class="flex-row-between item-f">
+		<view class="l">下单时间：{{detail.add_time}}</view>
+	
+	</view>
+  <view wx:if="{{!cancelOrder}}" class="flex-row-between item-f">
+		<view class="l">付款时间：{{detail.pay_time ? detail.pay_time : ''}}</view>
+	</view>
+	</block>
+
+
+</view>
+
+<view class="del-order" wx:if="{{detail.status==0}}">
+	<view bindtap="delorder" class="del-order-btn">删除订单</view>
+</view>

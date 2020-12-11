@@ -1,0 +1,58 @@
+<wxs module="m1">
+    var delHtmlTag = function(str) {
+    var reg = getRegExp("<[^>]+>", "g");
+    var result = str.replace(reg, '');
+    return result; 
+  }
+  module.exports.delHtmlTag = delHtmlTag;
+</wxs>
+<view class="listen">
+  
+  <view class="bgblur">
+    <image src="{{image_input}}"></image>
+  </view>
+
+  <view class="fore-img">
+    <image src="{{image_input}}"></image>
+  </view>
+    
+  <view class="title">
+    {{audioName}}
+  </view>
+
+  <view class="btn">
+    <text wx:if="{{lessonDetail.is_text}}" bindtap="goText">阅读</text>
+    <text wx:if="{{lessonDetail.is_video}}" bindtap="goVedio">视频</text>
+  </view>
+
+  <view class="progress">
+    <text class="timetext">{{ currentTimeText }}</text>
+    <view class="line" bindtouchend="touchProgressEnd" bindtouchmove="touchProgressMove">
+      <image src="../../images/linebg.png"></image>
+      <text class="bar" style="left:{{offsetLeft}}px" bindtouchstart="touchProgressStart"></text>
+    </view>
+    <text class="timetext">{{ durationText }}</text>
+  </view>
+</view>
+
+
+
+<view class="controlBtn">
+	<image class="prev" bindtap="prevChapter" src="{{static+'/prev.png'}}"></image>
+  <image class="pause" wx:if="{{isPause == 'pause'}}" bindtap="pauseSing" data-pause="play" src="{{static+'/play.png'}}"></image>
+  <image class="pause" wx:else bindtap="pauseSing" data-pause="pause" src="{{static+'/pause.png'}}"></image>
+	<image class="next" bindtap="nextChapter" src="{{static+'/next.png'}}"></image>
+</view>
+<scroll-view class="selecartical" scroll-x="true" bindscroll="scroll" style="width: 100%">
+  <view class="contentarea" wx:for="{{chapter}}" wx:key="id" bindtap="selectChapter" data-audioname="{{item.name}}" data-audiosrc="{{item.audio_url}}" data-chapterindex="{{index}}">
+    <text>{{item.name}}</text>
+    <view>
+      <rich-text nodes="<div style='display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;overflow: hidden;'>{{m1.delHtmlTag(item.text)}}</div>"></rich-text>
+    </view>
+  </view>
+</scroll-view>
+
+
+
+
+<!-- <loading isLoading="{{isLoading}}"/> -->

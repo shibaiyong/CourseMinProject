@@ -1,0 +1,72 @@
+<view>
+		<view class='payment-status'>
+			<!--失败时： 用icon-iconfontguanbi fail替换icon-duihao2 bg-color-->
+			<view class='iconfont icons icon-duihao2 bg-color' wx:if="order_pay_info.paid || order_pay_info.pay_type == 'offline'"></view>
+			<!-- <view class='iconfont icons icon-iconfontguanbi bg-color' v-else></view> -->
+			<!-- 失败时：订单支付失败 -->
+			<!-- <view class='status' wx:if="order_pay_info.pay_type != 'offline'">{{order_pay_info.paid ? '订单支付成功':'订单支付失败'}}</view> -->
+			<view class='status' >购买成功</view>
+			<view class='wrapper'>
+				<view class='item acea-row row-between-wrapper'>
+					<view>订单编号</view>
+					<view class='itemCom'>{{detail.order_id}}</view>
+				</view>
+				<view class='item acea-row row-between-wrapper'>
+					<view>下单时间</view>
+					<view class='itemCom'>{{detail.add_time}}</view>
+				</view>
+				<view class='item acea-row row-between-wrapper'>
+					<view>支付方式</view>
+					<view class='itemCom'>微信</view>
+				</view>
+				<view class='item acea-row row-between-wrapper'>
+					<view>支付金额</view>
+					<view class='itemCom'>¥{{detail.order_money}}</view>
+				</view>
+				<!--失败时加上这个  -->
+				<!-- <view class='item acea-row row-between-wrapper' v-if="order_pay_info.paid==0 && order_pay_info.pay_type != 'offline'">
+					<view>失败原因</view>
+					<view class='itemCom'>{{status==2 ? '取消支付':msg}}</view>
+				</view> -->
+			</view>
+			<view class="joinup returnBnt bg-color" bindtap="goJoinUp">
+				去报名
+			</view>
+			<!--失败时： 重新购买 -->
+			<view bindtap="goOrderDetails" wx:if="status==0">
+				<view bindtap="toOrderDetail" formType="submit" class='returnBnt cart-color' hover-class='none'>查看订单</view>
+			</view>
+			<!-- <view bindtap="goOrderDetails" wx:if="order_pay_info.paid==0 && status==1">
+				<view class='returnBnt bg-color' hover-class='none'>重新购买</view>
+			</view>
+			<view bindtap="goOrderDetails" wx:if="order_pay_info.paid==0 && status==2">
+				<view class='returnBnt bg-color' hover-class='none'>重新支付</view>
+			</view> -->
+			<!-- <button bindtap="goPink(order_pay_info.pink_id)" class='returnBnt cart-color' formType="submit" hover-class='none'
+			 v-if="order_pay_info.pink_id && order_pay_info.paid!=0 && status!=2 && status!=1">邀请好友参团</button> -->
+			<view bindtap="goIndex" class='returnBnt cart-color' formType="submit" hover-class='none' v-else>返回</view>
+			<!-- <view class="coupons" wx:if='couponList.length'>
+				<view class="title acea-row row-center-wrapper">
+					<view class="line"></view>
+					<view class="name">赠送优惠券</view>
+					<view class="line"></view>
+				</view>
+				<view class="list">
+					<view class="item acea-row row-between-wrapper" wx:for="(item,index) in couponList" :key='index' wx:if="couponsHidden?index<2:''">
+						<view class="price acea-row row-center-wrapper">
+							<view>
+								￥<text>{{item.coupon_price}}</text>
+							</view>
+						</view>
+						<view class="text">
+							<view class="name line1">{{item.coupon_title}}</view>
+							<view class="priceMin">满{{item.use_min_price}}元可用</view>
+							<view class="time">有效期:{{ item.add_time ? item.add_time + "-" : ""}}{{ item.end_time }}</view>
+						</view>
+					</view>
+					<view class="open acea-row row-center-wrapper" bindtap="openTap">{{couponsHidden?'展开更多':'合上更少'}}<text class="iconfont" :class='couponsHidden==true?"icon-xiangxia":"icon-xiangshang"'></text></view>
+				</view>
+			</view> -->
+		</view>
+		
+	</view>

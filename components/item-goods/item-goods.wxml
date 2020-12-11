@@ -1,0 +1,40 @@
+<!-- 课程库 -->
+<block wx:if="{{isLessonList}}">
+	<view bindtap="detailLesson" data-id="{{item.id}}" data-type="{{item.type}}" class="item-goods">
+		<view class="item-goods-sign" wx:if="{{item.type==2}}" style="background:#00D419">培训</view>
+		<view class="item-goods-sign" wx:elif="{{item.type==1}}" style="background:#2B80FF">课程</view>
+		<view class="item-goods-sign" wx:elif="{{item.type==3}}" style="background:#FD8732">直播</view>
+		<image class="item-goods-img" src="{{item.image_input}}"></image>
+		<view class="item-goods-title">
+			{{item.title}}
+		</view>
+		<view class="item-goods-price">
+			<view wx:if="{{item.price !=0}}">
+				¥{{item.price}}
+			</view>
+			<view wx:else class="free">
+				免费
+			</view>
+		</view>
+	</view>
+</block>
+<block  wx:if="{{!isLessonList}}">
+	<!-- 首页 -->
+	<view bindtap="goDetail" data-id="{{item.lesson_url}}" data-type="{{item.lesson_type}}" class="item-goods">
+		<view class="item-goods-sign" wx:if="{{item.lesson_type==2}}" style="background:#00D419">培训</view>
+		<view class="item-goods-sign" wx:elif="{{item.lesson_type==1}}" style="background:#2B80FF">课程</view>
+		<view class="item-goods-sign" wx:elif="{{item.lesson_type==3}}" style="background:#FD8732">直播</view>
+		<image class="item-goods-img" src="{{item.lesson_img}}"></image>
+		<view class="item-goods-title">
+			{{item.lesson_name}}
+		</view>
+		<view class="item-goods-price">
+			<view wx:if="{{item.lesson_money !=0}}">
+				¥{{item.lesson_money}}
+			</view>
+			<view wx:else class="free">
+				免费
+			</view>
+		</view>
+	</view>
+</block>

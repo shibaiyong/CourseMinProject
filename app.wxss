@@ -1,0 +1,107 @@
+page {
+  font-family: "PingFang SC";
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+.flex-row-start {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.flex-row-start-center{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.flex-row-start-around{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around
+}
+.flex-row-between {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-row-between-start{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.flex-row-between-t {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.flex-row-between-t2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.mul-font {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.single-font {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.public-line {
+  width: 750rpx;
+  height: 20rpx;
+  background: rgba(242, 242, 242, 1);
+}
+.over-data{
+  margin: 20rpx;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #999999;
+  line-height: 35rpx;
+}
+page::before{
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1rpx;
+  background-color: #e5e5e5;
+  z-index: 9999;
+}
+
+page::after{
+  content: '';
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height:1rpx;
+  background-color:#eeeeee;
+  z-index: 9999;
+}
+

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "item-goods":"../../components/item-goods/item-goods",
+    "loading":"../../components/loading/loading"
+  },
+  "navigationBarTitleText": "野玩儿课堂"
+}

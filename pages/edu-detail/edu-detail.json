@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "authorize": "../../components/authorize/authorize",
+    "loading":"../../components/loading/loading"
+  },
+  "navigationBarTitleText": "培训详情"
+}

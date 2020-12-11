@@ -1,0 +1,86 @@
+.user-c {
+  margin: 0 auto;
+  margin-top: 30rpx;
+  margin-bottom: 170rpx;
+  width: 684rpx;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #333333;
+  line-height: 40rpx;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.p {
+  margin-bottom: 40rpx;
+}
+
+.title {
+  color: #333;
+  font-weight: 500;
+}
+
+
+
+.public-btn {
+  text-align: center;
+  width: 330rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+
+}
+
+.public-btn:nth-of-type(1) {
+  background: #B8B8B8;
+  color: #FFFFFF;
+}
+
+.public-btn:nth-of-type(2) {
+  background: #FD8732;
+  color: #FFFFFF;
+}
+.fixed-bottom {
+  width: 750rpx;
+  height: 148rpx;
+  position: fixed;
+  background-color: #fff;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #E5E5E5;
+  padding: 0 30rpx;
+  padding-top:21rpx;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+.footer-height{
+  width: 750rpx;
+  height: 148rpx;
+}
+@supports (bottom: constant(safe-area-inset-bottom)) or (bottom: env(safe-area-inset-bottom)) { 
+  .fixed-bottom{
+    bottom: constant(safe-area-inset-bottom);
+    bottom: env(safe-area-inset-bottom); 
+  }
+  .ipx-height{
+    width: 100%;
+    height:constant(safe-area-inset-bottom);
+    height:env(safe-area-inset-bottom); 
+  }
+  fixed-bottom-bottom{
+    position: fixed;
+    left:0;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    height: constant(safe-area-inset-bottom);
+    height: env(safe-area-inset-bottom); 
+
+  }
+  .footer-height{
+   margin-bottom: constant(safe-area-inset-bottom);
+   margin-bottom: env(safe-area-inset-bottom); 
+  }
+}

@@ -1,0 +1,26 @@
+	<view>
+		<view wx:if="{{ishow}}">
+
+			<view  class="Popup" wx:if="{{isUserPhone}}"> 
+				<image src="/images/logo.jpg"></image>
+				<view class="title">授权提醒</view>
+				<view class="tip">请授权手机号信息，以便为您提供更好的服务</view>
+				<view class="bottom flex">
+					<view class="item"  data-ishow="{{ishow}}" bindtap="closePage">随便逛逛</view>
+					<button class="item grant" type="primary"  lang="zh_CN" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >去授权</button>
+				</view>
+			</view>
+			<view class="mask" wx:if="{{isUserPhone}}" data-ishow="{{ishow}}" bindtap="closePage"></view>
+
+			<view class="Popup" wx:if="{{isUserInfo}}">
+				<image src="/images/logo.jpg"></image>
+				<view class="title">授权提醒</view>
+				<view class="tip">请授权微信头像、昵称等信息，以便为您提供更好的服务</view>
+				<view class="bottom flex">
+					<view class="item"  data-ishow="{{ishow}}" bindtap="closePage">随便逛逛</view>
+					<button class="item grant" type="primary"  lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="getuserinfo">去授权</button>
+				</view>
+			</view>
+			<view class="mask" wx:if="{{isUserInfo}}"  data-ishow="{{ishow}}" bindtap="closePage"></view>
+		</view>
+	</view>

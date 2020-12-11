@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "authorize": "../../components/authorize/authorize",
+    "data-over":"../../components/data-over/data-over",
+    "data-no":"../../components/data-no/data-no",
+    "loading":"../../components/loading/loading"
+  },
+  "navigationBarTitleText": "我的课程"
+}

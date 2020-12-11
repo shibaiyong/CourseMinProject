@@ -1,0 +1,16 @@
+<view class="user-c">
+  <view class="p">
+    <rich-text nodes="{{content}}"></rich-text> 
+  </view>
+</view>
+<view class="ipx-height"></view>
+<view class="footer-height"></view>
+<view class="fixed-bottom-bottom"></view>
+<view class="flex-row-between fixed-bottom">
+  <view bindtap="goback" data-id="{{-1}}" class="public-btn">
+    不同意，返回
+  </view>
+  <view bindtap="goback" data-id="{{1}}"  class="public-btn">
+    同意
+  </view>
+</view>

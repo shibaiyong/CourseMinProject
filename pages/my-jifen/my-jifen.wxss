@@ -1,0 +1,120 @@
+.jifen-header {
+  width: 750rpx;
+  height: 300rpx;
+  position: relative;
+}
+
+.jifen-header-bg {
+  width: 750rpx;
+  height: 300rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.jifen-sub {
+  width: 750rpx;
+  height: 300rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding-top: 88rpx;
+  padding-left: 47rpx;
+}
+
+.jifen-title {
+  font-size: 28rpx;
+  line-height: 28rpx;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.jifen-num {
+  margin: 21rpx 0;
+  font-size: 60rpx;
+  line-height: 60rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+.jifen-num>image {
+  width: 56rpx;
+  height: 56rpx;
+  margin-left: 10rpx;
+}
+
+.jifen-desc {
+  font-size: 22rpx;
+  font-weight: 400;
+  color: #FFFFFF;
+
+}
+
+.nav-list {
+  background: #fff;
+ width: 750rpx;
+ height: 100rpx;
+ border-bottom: 1px solid #E5E5E5;
+}
+.nav-item{
+  position: relative;
+}
+.nav-active {
+ color: #FD8732;
+ 
+}
+
+.nav-active::after {
+ position: absolute;
+ bottom: -10rpx;
+ left: 50%;
+ transform: translateX(-50%);
+ content: '';
+ width: 22rpx;
+ height: 8rpx;
+ background: #FD8731;
+ border-radius: 4rpx;
+}
+
+.item-jifen{
+  width: 720rpx;
+  margin-left: 30rpx;
+  border-bottom: 1px solid #E5E5E5;
+  padding:45rpx 31rpx 45rpx 0;
+  box-sizing: border-box;
+}
+.jia{
+  color: #FF6F00;
+}
+.jian{
+  color: #419EFF;
+}
+.nav-item{
+ 
+}
+
+
+
+
+
+
+.no-jifen{
+  text-align: center;
+  margin-top: 170rpx;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #999999;
+  line-height: 28rpx;
+
+}
+.no-jifen-icon{
+  width: 170rpx;
+  height: 222rpx;
+  margin-bottom: 31rpx;
+}

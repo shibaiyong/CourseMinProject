@@ -1,0 +1,41 @@
+<view class="flex-row-start-around nav-list">
+	<view data-id="{{2}}" bindtap="changeTab" class="nav-item wx:if='{{type==2?'nav-active':''}}'">
+		培训
+	</view>
+	<view data-id="{{1}}" bindtap="changeTab" class="nav-item wx:if='{{type==1?'nav-active':''}}'">
+		课程
+	</view>
+	<block wx:if="{{lesson_live_on}}">
+		<view data-id="{{3}}" bindtap="changeTab" class="nav-item wx:if='{{type==3?'nav-active':''}}'">
+			直播
+		</view>
+	</block>
+</view>
+
+
+<view class="wx:if='{{list.length ?'c' :''}}'">
+	<block wx:for="{{list}}" wx:key="index">
+		<view bindtap="detial" data-id="{{item.lesson_id}}" data-type="{{item.type}}"
+			class="flex-row-between-t  item-lession">
+			<view>
+				<image class="item-image" src="{{item.lesson_img}}"></image>
+			</view>
+			<view class="item-title">
+				{{item.lesson_name}}
+			</view>
+		</view>
+		<!-- <view class="flex-row-between-t  item-lession" >
+		<view>
+			<image class="item-image" src="{{static+'/banner@2x.png'}}"></image>
+		</view>
+		<view class="item-title">
+			全国攀岩领队培训班初级班全国攀岩领队培训班初级班全国攀岩领队培训班初级班
+		</view>
+	</view> -->
+	</block>
+</view>
+
+<authorize bindgetinfoBack="getinfoBack" bindishowBack="ishowBack" ishow="{{ishow}}" />
+<loading isLoading="{{isLoading}}" />
+<data-over wx:if="{{list.length>0}}" over="{{over}}" />
+<data-no wx:if="{{list.length==0}}" desc="{{'暂无课程'}}" src="{{'../../images/no-order.png'}}" />

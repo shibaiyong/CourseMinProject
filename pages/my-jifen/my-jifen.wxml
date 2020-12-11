@@ -1,0 +1,62 @@
+<view class="jifen-header">
+	<image class="jifen-header-bg" src="{{static+'/jifen-bg2.png'}}"></image>
+  <view class="jifen-sub">
+    <view class="jifen-title">
+    我的积分
+    </view>
+    <view class="jifen-num">
+      <text>{{integral}}</text>
+      <image  src="{{static+'/jifen-white.png'}}"></image>
+    </view>
+    <view class="jifen-desc">
+    <!-- （*每消费1元人民币，账户可增加1个积分，可用于兑换商城商品） -->
+    (*积分可在兑换商城兑换商品)
+    </view>
+  </view>
+</view>
+
+<view class="flex-row-start-around nav-list">
+	<view bindtap="tapjf" data-id="{{-1}}"  class="nav-item wx:if='{{isActive==-1 ?'nav-active':''}}'"> 
+		全部
+  </view>
+	<view bindtap="tapjf" data-id="{{1}}"  class="nav-item wx:if='{{isActive==1 ?'nav-active':''}}'">
+		收入
+	</view>
+	<view bindtap="tapjf" data-id="{{0}}"  class="nav-item wx:if='{{isActive==0 ?'nav-active':''}}'">
+		支出
+	</view>
+</view>
+
+<block wx:if="{{list.length}}" wx:for="{{list}}" wx:key="index">
+  <view class="flex-row-between item-jifen">
+    <view>
+    <!-- 购买商品增加积分 -->
+    {{item.mark}}
+    </view>
+    <view wx:if="{{item.pm}}" class="jia">
+    <!-- +204 -->
+    +{{item.number}}
+    </view>
+    <view wx:else class="jian">
+      -{{item.number}}
+    </view>
+  </view>
+</block>
+
+
+<view class="no-jifen" wx:if="{{!list.length}}">
+  <image class="no-jifen-icon" src="{{static2+'/no-jifen.png'}}"></image>
+  <view class="">
+    暂无积分
+  </view>
+</view>
+<loading isLoading="{{isLoading}}" />
+
+<!-- <view class="flex-row-between item-jifen">
+  <view>
+  兑换商品扣除积分
+  </view>
+  <view class="jian">
+  -1079
+  </view>
+</view> -->

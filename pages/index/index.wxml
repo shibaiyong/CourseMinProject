@@ -1,0 +1,88 @@
+<view class="swiper-c">
+	<swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+		interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px"
+		next-margin="{{nextMargin}}px" indicator-color="{{indicatorColor}}"
+		indicator-active-color="{{indicatorActiveColor}}">
+		<block wx:for="{{banner}}" wx:key="*this">
+			<swiper-item>
+				<!-- <navigator url="{{item.url}}"> -->
+				<image bindtap="swiperTo" data-url="{{item.url}}" class="banner-item-img" src="{{item.pic}}"></image>
+				<!-- </navigator> -->
+				<view class="swiper-item {{item}}"></view>
+			</swiper-item>
+		</block>
+	</swiper>
+</view>
+
+<view class=" public-type-title">
+	<!-- 课程推荐 -->
+	{{recommend_title}}
+</view>
+
+<view class="lession-container">
+	<block wx:for="{{recommend}}" wx:key="*this">
+		<view data-id="{{item.lesson_url}}" data-type="{{item.lesson_type}}" bindtap="goDetail" class="flex-row-start item-lession">
+			<view class="item-lession-left">
+				<image src="{{item.lesson_img}}"></image>
+				<block wx:if="{{item.lesson_type==1}}">
+					<view class="item-lession-sign sign-bg1">
+						课程
+					</view>
+				</block>
+				<block wx:elif="{{item.lesson_type==3}}">
+					<view class="item-lession-sign sign-bg2">
+						直播
+					</view>
+				</block>
+				<block wx:elif="{{item.lesson_type==2}}">
+					<view class="item-lession-sign sign-bg3">
+						培训
+					</view>
+				</block>
+			</view>
+			<view class="item-lession-right">
+				<view class="single-font item-lession-title">
+					{{item.lesson_name}}
+				</view>
+				<view class="mul-font item-lession-desc">
+					{{item.lesson_desc}}
+				</view>
+			</view>
+		</view>
+	</block>
+</view>
+
+<view class="public-line"></view>
+<view class="flex-row-between min-url">
+	<view data-id="{{1}}" bindtap="goMinin" class="item-url">
+		<image src="{{static+'/play-icon.png'}}"></image>
+		<view>野玩儿部落</view>
+	</view>
+	<view data-id="{{2}}" bindtap="goMinin" class="item-url">
+		<image src="{{static+'/shopping-icon.png'}}"></image>
+		<view>野玩儿商城</view>
+	</view>
+</view>
+<view class="public-line"></view>
+
+<view class=" public-type-title">
+	<!-- 领队培训 -->
+	{{leader_title}}
+</view>
+<view class="flex-row-between goods-container">
+	<block wx:for="{{leader}}" wx:key="index">
+		<item-goods bindgoDetail="goDetail" item="{{item}}" />
+	</block>
+</view>
+<view class="public-line"></view>
+<view class=" public-type-title">
+	<!-- 野外求生 -->
+	{{outdoor_title}}
+</view>
+<view class="flex-row-between goods-container">
+	<block wx:for="{{outdoor}}" wx:key="index">
+		<item-goods bindgoDetail="goDetail" item="{{item}}" />
+	</block>
+</view>
+
+<loading  isLoading="{{isLoading}}"/>

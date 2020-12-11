@@ -1,0 +1,6 @@
+<view class="flex-row-between  item">
+	<view>
+  <input type="text" class="input" placeholder-class="placeholder" bindblur="blurName" model:value="{{nickname}}" placeholder="输入昵称" />
+	</view>
+	<image catchtap="del" class="item-image" src="{{static+'/init.png'}}"></image>
+</view>

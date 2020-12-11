@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "item-goods":"../../components/item-goods/item-goods",
+    "data-over":"../../components/data-over/data-over",
+    "loading":"../../components/loading/loading",
+    "data-no":"../../components/data-no-public/data-no-public"
+  },
+  "navigationBarTitleText": "课程库"
+}

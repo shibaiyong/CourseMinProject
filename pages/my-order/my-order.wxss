@@ -1,0 +1,162 @@
+page {
+  background: #F1F1F1;
+}
+.s-blod{
+  font-weight: bold;
+}
+.nav-list {
+   background: #fff;
+  width: 750rpx;
+  height: 100rpx;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.nav-active {
+  color: #FD8732;
+  position: relative;
+}
+
+.nav-active::after {
+  position: absolute;
+  bottom: -10rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  content: '';
+  width: 22rpx;
+  height: 8rpx;
+  background: #FD8731;
+  border-radius: 4rpx;
+}
+/*********/
+.edu-order-item {
+  margin: 0 auto;
+  margin-top:20rpx;
+  width: 690rpx;
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  box-sizing: border-box;
+}
+
+.edu-order-sign {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #000000;
+  line-height: 30rpx;
+  margin-top: 31rpx;
+  margin-left: 35rpx;
+  margin-bottom: 29rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing:border-box;
+  padding-right: 22rpx;
+  
+}
+.time-pay{
+font-size: 24rpx;
+font-weight: 400;
+color: #FF7700;
+/* line-height: 24rpx; */
+
+}
+
+.edu-order-content {
+  box-sizing: border-box;
+  padding-left: 23rpx;
+  padding-right: 25rpx;
+  padding-bottom: 21rpx;
+  border-bottom: 1px solid #E5E5E5;
+
+}
+
+.edu-order-content-l {
+  width: 190rpx;
+  height: 140rpx;
+  border-radius: 8rpx;
+  margin-right: 16rpx;
+}
+
+.edu-order-content-m {
+  /* width: 283rpx; */
+  width: 270rpx;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #333333;
+  line-height: 36rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-items: flex-start;
+  flex-wrap: wrap;
+
+}
+
+.date {
+  margin-top: 29rpx;
+  width: 282rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #999999;
+  line-height: 24rpx;
+
+}
+
+.edu-order-content-r {
+  width: 160rpx;
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #FD8732;
+  line-height: 30rpx;
+  text-align: right;
+  /* margin-left: 37rpx; */
+}
+
+.total {
+  /* display: flex;
+  flex-direction: row;
+  background: red; */
+  text-align: right;
+  width: 690rpx;
+  height: 79rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #333333;
+  line-height: 79rpx;
+  padding-right: 21rpx;
+  box-sizing: border-box;
+
+}
+.total-money{
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #FD8732;
+}
+.edu-order-item-bottom{
+  width: 690rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 25rpx;
+  padding-bottom: 13rpx;
+}
+.order-public-btn{
+  width: 120rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border: 1px solid #999999;
+  border-radius: 4rpx;
+  text-align: center;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #333333;
+}
+.order-btn-pay{
+  margin-left:20rpx;
+  border-color: #FD8732;
+  color:#FD8732;
+}
+.total-font{
+  margin-left:15rpx;
+}

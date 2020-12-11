@@ -1,0 +1,100 @@
+{
+  "pages":[
+   
+    "pages/index/index",
+    
+    
+
+    
+    "pages/lesson-list/lesson-list", 
+    "pages/lesson-detail/lesson-detail",
+    "pages/live-detail/live-detail",
+    "pages/lesson-listen/lesson-listen",
+    
+   
+    
+    
+
+    "pages/edu-list/edu-list",
+    "pages/edu-detail/edu-detail",
+    "pages/join-up/join-up",
+    "pages/user-agreement/user-agreement",
+
+
+
+    
+    "pages/account/account",
+    "pages/my-order/my-order",
+    "pages/my-lesson/my-lesson",
+    "pages/my-jifen/my-jifen",
+    "pages/order-detail/order-detail",
+    "pages/about-us/about-us",
+    "pages/edit-name/edit-name",
+    "pages/my-likes/my-likes",
+   
+
+    
+
+   
+   
+    
+
+    "pages/detail/detail",
+    "pages/pay-result/pay-result",
+    
+    
+    "pages/account2/account2",
+    "pages/test/test",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "野玩儿课堂",
+    "navigationBarTextStyle":"black"
+  },
+  "globalStyle":{
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "color": "#999999",
+    "selectedColor": "#FD8732",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/index-icon.png",
+        "selectedIconPath": "/images/index-icon-a.png"
+      },
+      {
+        "pagePath": "pages/edu-list/edu-list",
+        "text": "培训",
+        "iconPath": "/images/peixun-icon.png",
+        "selectedIconPath": "/images/peixun-icon-a.png"
+      },
+      {
+        "pagePath": "pages/lesson-list/lesson-list",
+        "text": "课程",
+        "iconPath": "/images/lession-icon.png",
+        "selectedIconPath": "/images/lession-icon-a.png"
+      },
+      {
+        "pagePath": "pages/account/account",
+        "text": "我的",
+        "iconPath": "/images/account-icon.png",
+        "selectedIconPath": "/images/account-icon-a.png"
+      }
+    ]
+  },
+  "plugins": {
+      "live-player-plugin": {
+          "version": "1.2.0",
+          "provider": "wx2b03c6e691cd7370"
+      }
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "requiredBackgroundModes": ["audio", "location"]
+}

@@ -1,0 +1,26 @@
+
+<view class="read">
+
+  <view class="title">
+    
+    {{ chapterName }}
+
+  </view>
+  <view class="content">
+    <rich-text nodes="{{chapterContent}}"></rich-text>
+  </view>
+</view>
+
+<view class="switchMode">
+	<image wx:if="{{lessonDetail.is_video}}" class="eye" bindtap="goVedio" src="{{static+'/eye-model@2x.png'}}"></image>
+	<image wx:if="{{lessonDetail.is_audio}}" class="ear" bindtap="goAudio" src="{{static+'/ear-model@2x.png'}}"></image>
+</view>
+
+<view class="chapterscontainer">
+  <view class="choosechapter">
+    <text bindtap="prevChapter">上一章</text>
+    <text bindtap="nextChapter">下一章</text>
+  </view>
+</view>
+
+<loading isLoading="{{isLoading}}"/>

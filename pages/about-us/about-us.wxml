@@ -1,0 +1,10 @@
+<view class="header">
+	<image class="goods-image" src="{{content.image_input[0]}}"></image>
+	<view class="version">
+		版本：V{{content.synopsis}}
+	</view>
+</view>
+
+<view class="part">
+<rich-text nodes="{{contentsub}}"></rich-text>                         
+</view>

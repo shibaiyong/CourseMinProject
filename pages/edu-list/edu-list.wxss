@@ -1,0 +1,6 @@
+page{
+  background: #F2F2F2;
+}
+.list-c{
+margin-bottom: 30rpx;
+}

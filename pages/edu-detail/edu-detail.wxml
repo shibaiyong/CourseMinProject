@@ -1,0 +1,164 @@
+<wxs module="utils">
+	var matchUrl = function(str){
+		//var urlReg = /(https?|ftp)?:\/\/\w+(\.\w+)+(\/\w+)*(\?\w+=[\w\u4e00-\u9fa5]+)?(&\w+=[\w\u4e00-\u9fa5]+)*/;
+		var urlReg = getRegExp("(https?|ftp)?:\/\/\w+(\.\w+)+(\/\w+)*(\.\w+)*(\?\w+=[\w\u4e00-\u9fa5]+)?(&\w+=[\w\u4e00-\u9fa5]+)*");
+		var result = '';
+		if(str){
+			result = str.match(urlReg);
+			return result[0];
+		}
+		return false;
+	}
+  
+  module.exports.matchUrl = matchUrl;
+</wxs>
+
+<view class="banner">
+	<image class="banner-image" src="{{lessonDetail.image_input}}"></image>
+	<block wx:if="{{!isLike}}">
+		<image  bindtap="collect" data-like="{{false}}"  class="like" src="{{static+like}}"></image>
+	</block>
+	<block wx:else>
+		<!-- 已收藏 -->
+		<image bindtap="collect" data-like="{{true}}"  class="like" src="{{static+'/like-icon.png'}}"></image>
+	</block>
+	<image class="share" src="{{static+'/share-white.png'}}" bindtap="toShare"></image>
+	</view>
+<view class="flex-row-between-start item-desc">
+	<view class="item-desc-l">
+		<view class="title">
+			{{lessonDetail.title}}
+		</view>
+		<view class="date">
+			{{lessonDetail.start_time}}-{{lessonDetail.end_time}}
+		</view>
+		<view class="tagscontainer">
+			<view class="tagitem" wx:if="{{lessonDetail.tag1}}">{{lessonDetail.tag1}}</view>
+			<view class="tagitem" wx:if="{{lessonDetail.tag2}}">{{lessonDetail.tag2}}</view>
+			<view class="tagitem" wx:if="{{lessonDetail.tag3}}">{{lessonDetail.tag3}}</view>
+		</view>
+	</view>
+	<view class="item-desc-r">
+		<view class="price">
+
+			<view class="descontainer"><text class="des_time">特价</text><text class="othertime">仅剩{{ othertime }}</text>
+			</view>
+
+			<block wx:if="{{lessonDetail.price !='0.00'}}">
+				<text class="price-money">¥{{lessonDetail.price}}</text>
+			</block>
+
+			<block wx:else>
+				<text class="price-free">免费</text>
+			</block>
+
+			<view class="ot_price" wx:if="{{lessonDetail.ot_price}}"><text class="label_price">原价:</text><text class="num_price">{{lessonDetail.ot_price}}</text></view>
+		</view>
+		
+	</view>
+</view>
+<view class="public-line"></view>
+
+<view class="type-title-c">
+	<view class="type-title">
+		培训详情
+	</view>
+</view>
+<view class="part">
+	<rich-text nodes="{{lessonDetail.content}}"></rich-text>
+	<view class="vediosection" wx:if="{{utils.matchUrl(lessonDetail.content)}}">
+		<video class="c-video" autoplay="{{isAutoplay}}" id="myVideo" src="{{utils.matchUrl(lessonDetail.content)}}" controls></video>
+	</view>
+</view>
+
+<view class="type-title-c" style="padding-bottom:32rpx;">
+	<view class="type-title">
+		培训概览
+	</view>
+	<view class="part">
+		<rich-text nodes="{{lessonDetail.train_overview}}"></rich-text>
+		
+	</view>
+</view>
+<view class="type-title-c" style="padding-bottom:30rpx;">
+	<view class="type-title">
+		明星导师
+	</view>
+	<view class="part">
+		<view class="item-gk">
+			<view class="jiaolian-info-top">
+				<image class="jiaolian-icon" src="{{lessonDetail.train_coach_img}}"></image>
+				<view class="jiaolian-name">{{lessonDetail.train_coach_name}}</view>
+			</view>
+		</view>
+		<view class="jiaolian-inc">
+			<rich-text nodes="{{lessonDetail.train_coach_desc}}"></rich-text>
+		</view>
+		
+	</view>
+</view>
+
+<view class="type-title-c">
+	<view class="type-title">
+		培训收获
+	</view>
+</view>
+<view class="part" style="border-bottom:none;">
+	<rich-text nodes="{{lessonDetail.gains}}"></rich-text>
+</view>
+
+<view class="tel" bindtap="call" data-phone="{{lessonDetail.train_tel}}">
+	培训咨询：{{lessonDetail.train_tel}}
+</view>	
+
+<image style="width:100rpx;height:100rpx;" src=""></image>
+<!-- <view class="public-line"></view> -->
+<view class="ipx-height"></view>
+<view class="apply-c-height"></view>
+<view class="apply-c-bottom"></view>
+<view class="apply-c">  
+	<view class="public-line"></view>
+	<block wx:if="{{lessonDetail.is_buy==2}}">
+		<view  class="apply-btn applyed">已支付</view>
+	</block>
+	<block wx:elif="{{lessonDetail.status_name=='已结束'}}">
+		<view  class="apply-btn applyed">
+			已结束
+		</view>
+	</block>
+	<block wx:elif="{{lessonDetail.status_name=='已报满'}}">
+		<view  class="apply-btn applyed">
+			已报满
+		</view>
+	</block>
+	<block wx:elif="{{lessonDetail.status_name=='已下架'}}">
+		<view  class="apply-btn applyed">
+			已下架
+		</view>
+	</block>
+	<block wx:else>
+		<view bindtap="joinUp" data-id="{{lessonDetail.id}}" class="apply-btn">立即报名</view>
+	</block>
+</view>
+<view class="zhe" wx:if="{{isShare}}" bindtap="closeShare" data-name="share">
+	<view class="successalert">
+		<button class="shareposter" open-type='share'>
+			<image src="{{static+'/photo.png'}}"></image>
+			<text>发送给朋友</text>
+		</button>
+		<view class="message" catchtap="createPoster">
+			<image src="{{static+'/weixin.png'}}"></image>
+			<text>生成海报</text>
+		</view>
+	</view>
+</view>
+<view class="zhe" wx:if="{{isShowPoster}}" bindtap="closeShare" data-name="poster">
+	<view class="canvasarea">
+		<canvas style="width:420rpx;height:600rpx;" canvas-id="canvasBox{{random}}" />
+		<view class="share-poster" bindtap="saveShareImg">
+			保存到手机
+		</view>
+	</view>
+</view>
+<authorize bindgetinfoBack="getinfoBack" bindishowBack="ishowBack" ishow="{{ishow}}"/>
+<loading isLoading="{{isLoading}}"/>

@@ -1,0 +1,44 @@
+.item-goods{
+  width: 335rpx;
+  margin-bottom: 32rpx;
+  position: relative;
+}
+.item-goods-sign{  
+  position: absolute;
+  top:10rpx;
+  right:10rpx;
+  padding: 5prx;
+  padding-left: 5rpx !important;
+display: block;
+  padding-right: 5rpx !important;
+  font-size:20rpx;
+  font-weight:400;
+  background: #00D419;
+  color: #fff;
+  border-radius:3px;
+  text-align:center;
+}
+.item-goods-img{
+  width:335rpx;
+  height:200rpx;
+  background:rgba(51,51,51,1);
+  border-radius:8rpx;
+}
+.item-goods-title{
+  /* width:335rpx; */
+  margin-top:20rpx;
+  margin-bottom: 21rpx;
+line-height:30rpx;
+font-size:30rpx;
+font-weight:500;
+color:rgba(51,51,51,1);
+}
+.item-goods-price{
+  font-size:28rpx;
+  font-weight:500;
+  color:rgba(253,135,50,1);
+  line-height:28rpx;
+}
+.free{
+  color: #00C809;
+}

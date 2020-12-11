@@ -1,0 +1,75 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"enhance": false,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": false,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"uglifyFileName": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
+		"useMultiFrameRuntime": false,
+		"useApiHook": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"packNpmManually": false,
+		"packNpmRelationList": []
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.12.2",
+	"appid": "wxf68e33546ab15731",
+	"projectname": "ketang_front",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"list": []
+		},
+		"conversation": {
+			"list": []
+		},
+		"plugin": {
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"list": []
+		},
+		"miniprogram": {
+			"list": [
+				{
+					"id": 0,
+					"name": "模拟更新",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

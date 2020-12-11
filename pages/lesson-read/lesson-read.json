@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "authorize": "../../components/authorize/authorize",
+    "loading":"../../components/loading/loading"
+  },
+  "navigationBarTitleText": "课程音频"
+}

@@ -1,0 +1,80 @@
+
+<view class="banner">
+  <image class="banner-image" src="{{lessonDetail.image_input}}"></image>
+  <view class="banner-optity"></view>
+	<block wx:if="{{!isLike}}">
+		<image  bindtap="collect" data-like="{{false}}"  class="like" src="{{static+like}}"></image>
+	</block>
+	<block wx:else>
+		<!-- 已收藏 -->
+		<image bindtap="collect" data-like="{{true}}"  class="like" src="{{static+'/like-icon.png'}}"></image>
+	</block>
+	<image class="share" src="{{static+'/share-white.png'}}"></image>
+	<button size="mini" class="share share-button mini-btn"  open-type='share'></button>
+  <view class="live-title">
+    {{lessonDetail.title}}
+  </view>
+	<view class="live-buy-btn" wx:if="{{!isBuy2 &&  lessonDetail.status_name !='已下架'}}" data-id="{{lessonDetail.id}}" bindtap="goBuy" >立即购买</view>
+	<view class="live-buy-btn" wx:if="{{!isBuy2 && lessonDetail.status_name =='已下架'}}" style="border:1rpx solid #666;color:#fff;" >已下架</view>
+	<view class="live-buy-btn" wx:if="{{isBuy2 && lessonDetail.url !=0}}">
+		<navigator url="plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id={{lessonDetail.url}}&custom_params={{customParams}}">进入直播间</navigator>
+	</view>
+</view>
+<view class="flex-row-between-start item-desc">
+	<view class="item-desc-l">
+		<view class="title">
+			{{lessonDetail.title}}
+		</view>
+		<view class="live-price">
+			<block wx:if="{{lessonDetail.price !='0.00'}}">
+				¥{{lessonDetail.price}}
+			</block>
+			<block wx:else>
+					<text class="price-free">免费</text>
+				</block>
+		</view>
+	</view>
+</view>
+<view class="public-line"></view>
+
+<view class="type-title-c">
+	<view class="type-title">
+		课程详情
+	</view>
+</view>
+<view class="part">
+	<rich-text nodes="{{lessonDetail.content}}"></rich-text>
+</view>
+<view class="type-title-c" style="padding-bottom:30rpx;">
+	<view class="type-title">
+		课程讲师
+	</view>
+	<view class="item-gk-c">
+		<view class="item-gk">
+			<view class="jiaolian-info-top">
+				<image class="jiaolian-icon" src="{{lessonDetail.train_coach_img}}"></image>
+				<view class="jiaolian-name">{{lessonDetail.train_coach_name}}</view>
+			</view>
+		</view>
+		<view class="jiaolian-inc">
+			<rich-text nodes="{{lessonDetail.train_coach_desc}}"></rich-text>
+		</view>
+	</view>
+</view>
+
+<view wx:if="{{!isBuy2}}" class="ipx-height-bottom"></view>
+<view wx:if="{{!isBuy2}}" class="ipx-height"></view>
+
+<view wx:if="{{!isBuy2}}" class="apply-c-bottom"></view>
+<view class="apply-c" wx:if="{{!isBuy2 && lessonDetail.status_name !='已下架'}}">
+		<view wx:if="{{!isBuy2}}"  class="public-line"></view> 
+		<view   data-id="{{lessonDetail.id}}" bindtap="goBuy" class="apply-btn">立即购买</view>
+</view>
+<view class="apply-c" wx:elif="{{lessonDetail.status_name =='已下架'}}">
+		<view wx:if="{{!isBuy2}}"  class="public-line"></view> 
+		<view  class="apply-btn" style="background:#666;">已下架</view>
+</view>
+
+
+<authorize bindgetinfoBack="getinfoBack"   bindishowBack="ishowBack" ishow="{{ishow}}"/> 
+<loading isLoading="{{isLoading}}"/>

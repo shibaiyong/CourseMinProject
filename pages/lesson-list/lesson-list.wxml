@@ -1,0 +1,21 @@
+<view class="header-nav"> 
+  <scroll-view class="header-scroll-view" scroll-x="{{true}}" enhanced="{{enhanced}}" show-scrollbar="{{false}}" scroll-with-animation="{{true}}" bindscroll="scroll">
+    <view class="header-scroll-view-sub">
+      <block wx:for="{{navList}}" wx:key="index">
+        <view bindtap="tabNav" data-id="{{item.id}}" class="header-nav-item wx:if='{{item.isactive ? 'active' :''}}'">
+          {{item.title}}
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+<view class="header-nav-margin-bottom"></view>
+
+<view class="flex-row-between goods-container">
+  <block wx:for="{{list}}" wx:key="index">
+    <item-goods  binddetailLesson="detailLesson" isLessonList="{{true}}" item="{{item}}" />
+  </block>
+</view>
+<loading isLoading="{{isLoading}}"/>
+<data-over wx:if="{{count}}" over="{{over}}"/>
+<data-no wx:if="{{!count}}"/>

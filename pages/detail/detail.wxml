@@ -1,0 +1,13 @@
+<view class="title">
+  {{data.title}}
+</view>
+<view class="time">
+  发布时间：{{data.add_time}}
+</view>
+<view class="content">
+  <rich-text nodes="{{content}}"></rich-text>
+</view>
+<view bindtap="goOrderDetails">
+	<button  open-type='share' class='returnBnt bg-color' >立即分享</button>
+</view>
+<loading isLoading="{{isLoading}}"/>

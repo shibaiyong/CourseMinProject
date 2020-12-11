@@ -1,0 +1,38 @@
+<view bindtap="itemInfo" data-id="{{item.id}}" class="edu-list-item" >
+  <!-- "status": 1,//状态 0 已结束 1进行中 2未开始 3已报满 -->
+  <image wx:if="{{item.status==3}}" class="edu-tag"  src="{{static+'/enable-nums.png'}}"></image>
+  <image wx:if="{{item.status ==0}}" class="edu-tag"  src="{{static+'/over-time.png'}}"></image>
+  <!-- over-time.png -->
+  <image class="item-image" src="{{item.image_input}}"></image>
+  <view class="flex-row-between-start item-desc">
+    <view class="item-desc-l">
+      <view class="title">
+        {{item.title}}
+      </view>
+      <view class="date">
+        <!-- 2020.07.28--2020.08.32 -->
+        {{item.start_time}}-{{item.end_time}}
+      </view>
+    </view>
+    <view class="item-desc-r">
+      <view class="price">
+        <block wx:if="{{item.price !='0.00'}}">
+          <view class="zaoniao" wx:if="{{item.is_zaoniao==1}}"><image src="../../images/iszaoniao.png"></image><text>:</text></view><text class="price-money">¥{{item.price}}</text>
+        </block>
+        <block wx:else>
+          <text class="price-free">免费</text>
+        </block>
+      </view>
+      <view class="nums" wx:if="{{item.price =='0.00'}}">
+        仅剩{{item.total_num - item.order_num}}个名额
+      </view>
+      <view class="ot_price" wx:elif="{{item.ot_price}}">
+        原价:¥{{item.ot_price}}
+      </view>
+      <view class="nums" wx:else>
+        活动已结束
+      </view>
+    </view>
+  </view>
+</view>
+

@@ -1,0 +1,15 @@
+.data-no-public{
+  margin: 0 auto;
+  text-align: center;
+  width: 280rpx;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #999999;
+  line-height: 42rpx;
+  margin-top: 265rpx;
+}
+.data-no-public >image{
+  width: 280rpx;
+  height: 237rpx;
+  margin-bottom: 44rpx;
+}
