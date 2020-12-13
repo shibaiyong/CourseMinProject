@@ -118,10 +118,17 @@ Page({
         Authorization: "Bearer " + app.globalData.token,
       },
       success: (res) => {
-        console.log(res)
-        this.setData({
-          isSuccess:true
-        })
+        if(res.data.status==200){
+          this.setData({
+            isSuccess:true
+          })
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon:'none'
+          })
+        }
+        
       }
     })
   },
@@ -142,6 +149,7 @@ Page({
         m:'/m-un.png'
       })
     }
+    console.log(this.data.joinInfo)
   },
   getInfo(){
     const that =this
@@ -188,14 +196,21 @@ Page({
       wx.reLaunch({
         url: '../edu-detail/edu-detail?id='+this.data.edu_id
       })
+    }else if(this.data.type==3){
+      wx.reLaunch({
+        url: '../live-detail/live-detail?id='+this.data.edu_id
+      })
+    }else{
+      wx.reLaunch({
+        url: '../lesson-detail/lesson-detail?id='+this.data.edu_id
+      })
     }
   },
   onLoad: function (options) {
     let { id, idx, edu_id, type } = options
+    this.data.joinInfo.id = id
     this.setData({
-      joinInfo:{
-        id:id
-      },
+      joinInfo:this.data.joinInfo,
       edu_id,
       type
     })

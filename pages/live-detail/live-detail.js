@@ -139,20 +139,13 @@ Page({
             isBuy:true,
             isBuy2:true
           })
-          // wx.showToast({
-          //   title: '购买成功',
-          //   icon:'none'
-          // })
-          console.log('data',data)
           that.getdetailLesson(that.data.id)
-          
           wx.reLaunch({
-            url: '../pay-result/pay-result?id='+data.data.order_id,
+            url: '../join-up/join-up?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type='+that.data.lessonDetail.type,
           })
         }else {
           let info ={}
           info=data.data
-          console.log('订单————————',info)
           wx.requestPayment({
             timeStamp:info.timestamp,
             nonceStr:info.nonceStr,
@@ -160,14 +153,9 @@ Page({
             signType:info.signType,
             paySign:info.paySign,
             success (res) {
-              // wx.showToast({
-              //   title: '购买成功',
-              //   icon:'none'
-              // })
               that.getdetailLesson(that.data.id)
-              
               wx.reLaunch({
-                url: '../pay-result/pay-result?id='+data.data.order_id,
+                url: '../join-up/join-up?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type='+that.data.lessonDetail.type,
               })
              },
             fail (res) { 

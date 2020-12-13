@@ -29,13 +29,13 @@ Page({
    }else if(is_audio){
 
     wx.navigateTo({
-      url: '../lesson-detail/lesson-listen?id='+id,
+      url: '../lesson-listen/lesson-listen?id='+id,
     })
 
    }else if(is_text){
 
     wx.navigateTo({
-      url: '../lesson-detail/lesson-text?id='+id,
+      url: '../lesson-read/lesson-read?id='+id,
     })
 
    }

@@ -1,6 +1,5 @@
 <wxs module="utils">
 	var matchUrl = function(str){
-		//var urlReg = /(https?|ftp)?:\/\/\w+(\.\w+)+(\/\w+)*(\?\w+=[\w\u4e00-\u9fa5]+)?(&\w+=[\w\u4e00-\u9fa5]+)*/;
 		var urlReg = getRegExp("(https?|ftp)?:\/\/\w+(\.\w+)+(\/\w+)*(\.\w+)*(\?\w+=[\w\u4e00-\u9fa5]+)?(&\w+=[\w\u4e00-\u9fa5]+)*");
 		var result = '';
 		if(str){

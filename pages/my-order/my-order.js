@@ -154,9 +154,9 @@ Page({
   },
   goJoinUp(e){
 
-    const { orderid, lessonid } = e.currentTarget.dataset
+    const { id, lessonid } = e.currentTarget.dataset
     wx.navigateTo({
-      url: '../join-up/join-up?id=' + orderid + '&edu_id=' + lessonid + '&type=' + this.data.type,
+      url: '../join-up/join-up?id=' + id + '&edu_id=' + lessonid + '&type=' + this.data.type,
     })
 
   },
@@ -286,7 +286,6 @@ Page({
       console.log('数据加载完毕')
       return false
     }
-    console.log('________________________________________________KKK',obj)
     wx.request({
       url: that.data.baseUrl + "lesson/order/list",
       data: obj,
@@ -374,7 +373,6 @@ Page({
               item.countDownSecond = secStr
 
               second--;
-              console.log('interval______________________________',interval)
               if (second < 0) {
               clearInterval(interval);
               wx.showToast({

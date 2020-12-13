@@ -112,10 +112,12 @@ Page({
           //   title: '购买成功',
           //   icon:'none'
           // })
+          // wx.reLaunch({
+          //   url: '../pay-result/pay-result?id='+data.data.order_id,
+          // })
           wx.reLaunch({
-            url: '../pay-result/pay-result?id='+data.data.order_id,
+            url: '../join-up/join-up?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type=2',
           })
-         
         
         }else {
           let info ={}
@@ -127,13 +129,14 @@ Page({
             signType:info.signType,
             paySign:info.paySign,
             success (res) {
+              // wx.reLaunch({
+              //   url: '../pay-result/pay-result?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type=2',
+              // })
               wx.reLaunch({
-                url: '../pay-result/pay-result?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type=2',
+                url: '../join-up/join-up?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type=2',
               })
              },
-            fail (res) {
-
-            }
+            fail (res) {}
           })
         }
       }

@@ -58,7 +58,7 @@
 			</view>
 		</view>
 		<view class="edu-order-item-bottom" wx:if="{{item.status==2 && !item.name}}">
-			<text class="order-public-btn order-btn-pay" catchtap="goJoinUp" data-lessonid="{{item.lesson_id}}" data-orderid="{{item.order_id}}">完善信息</text>
+			<text class="order-public-btn order-btn-pay" catchtap="goJoinUp" data-lessonid="{{item.lesson_id}}" data-id="{{item.id}}">完善信息</text>
 		</view>
 	</view>
 </block>

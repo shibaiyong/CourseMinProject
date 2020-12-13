@@ -9,6 +9,30 @@
   position: relative;
 
 }
+
+.edutags{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.edutags text{
+  display: inline-block;
+  width:130rpx;
+  text-align: center;
+  height: 42rpx;
+  border-radius: 8rpx;
+  line-height: 42rpx;
+  font-size: 26rpx;
+  background:rgba(255, 255, 255, 0.4);
+  color:white;
+  margin-top:20rpx;
+  margin-left:24rpx;
+  /* text-shadow: 5rpx 5rpx 0rpx orangered; */
+  /* box-shadow: 5rpx 5rpx 0rpx orangered; */
+}
+
 .item-image{
   width: 690rpx;
   height: 280rpx;

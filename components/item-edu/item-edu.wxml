@@ -4,6 +4,11 @@
   <image wx:if="{{item.status ==0}}" class="edu-tag"  src="{{static+'/over-time.png'}}"></image>
   <!-- over-time.png -->
   <image class="item-image" src="{{item.image_input}}"></image>
+  <view class="edutags">
+    <text wx:if="{{item.tag1}}">{{item.tag1}}</text>
+    <text wx:if="{{item.tag2}}">{{item.tag2}}</text>
+    <text wx:if="{{item.tag3}}">{{item.tag3}}</text>
+  </view>
   <view class="flex-row-between-start item-desc">
     <view class="item-desc-l">
       <view class="title">
