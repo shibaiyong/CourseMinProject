@@ -188,6 +188,8 @@ page {
 }
 .mine{
   margin-top:20rpx;
+  padding:0 30rpx;
+  box-sizing: border-box;
 }
 
 .mine image{

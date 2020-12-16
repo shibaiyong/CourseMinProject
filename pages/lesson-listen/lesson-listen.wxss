@@ -168,10 +168,20 @@
   vertical-align: middle;
   line-height: 28rpx;
 }
-
+.selecartical .chapterActive{
+  border:2rpx solid #FD8732;
+}
 .contentarea text{
   font-size:32rpx;
   color:#333;
+}
+
+.selecartical .chapterActive text{
+  color:#FD8732;
+}
+
+.divChapterActive{
+  color:#FD8732;
 }
 
 .contentarea view{

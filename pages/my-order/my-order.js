@@ -331,8 +331,6 @@ Page({
           if (end_time) {
             item.end_time = end_time.replace(/\-/g, ".").replace(/\-/g, ".").split(' ')[0] 
           }
-          console.log('eeeeeeeeeeeee', item)
-          // list.end_time=list.end_time.replace(/\-/g,".")
         })
         that.setData({
           isLoading: false,

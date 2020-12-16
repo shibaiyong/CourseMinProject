@@ -22,7 +22,8 @@ Page({
     audioName:'',
     lessonDetail:{},
     isFinish:false,
-    system:''
+    system:'',
+    selectId:''
   },
 
   initAudio(){
@@ -113,7 +114,6 @@ Page({
     }else{
       //andriod可以直接调用播放play,ios播放中可以直接调用。播放完成后无法调用play()
       let flag = /ios/i.test(this.data.system)
-      console.log(flag,this.data.isFinish)
       if(this.data.isFinish&&flag){
         
          this.initAudio()
@@ -223,13 +223,15 @@ Page({
     let audiosrc = e.currentTarget.dataset.audiosrc
     let audioname = e.currentTarget.dataset.audioname
     let index = e.currentTarget.dataset.chapterindex
+    let chapterid = e.currentTarget.dataset.chapterid
     this.setData({
       audioSrc: audiosrc,
       currentTime :0,
       currentTimeText:"00:00",
       isPause:'play',
       currentChapter:index,
-      audioName:audioname
+      audioName:audioname,
+      selectId:chapterid
     })
     this.initAudio()
     this.calculateLeft(0)
@@ -239,10 +241,12 @@ Page({
     let index = this.data.currentChapter
     let audiosrc = ''
     let audioName = this.data.audioName
+    let audioId = ''
     if(index < this.data.chapter.length-1){
       index += 1
       audiosrc = this.data.chapter[index].audio_url
       audioName = this.data.chapter[index].name
+      audioId = this.data.chapter[index].id
     }else{
       return false
     }
@@ -253,7 +257,8 @@ Page({
       currentTimeText:"00:00",
       isPause:'play',
       currentChapter:index,
-      audioName
+      audioName,
+      selectId:audioId
     })
     //backgroundAudioManager.stop()
     this.initAudio()
@@ -263,10 +268,12 @@ Page({
     let index = this.data.currentChapter
     let audiosrc = ''
     let audioName = this.data.audioName
+    let audioId = ''
     if(index > 0){
       index -= 1
       audiosrc = this.data.chapter[index].audio_url
       audioName = this.data.chapter[index].name
+      audioId = this.data.chapter[index].id
     }else{
       return false
     }
@@ -277,7 +284,8 @@ Page({
       currentTimeText:"00:00",
       isPause:'play',
       currentChapter:index,
-      audioName
+      audioName,
+      selectId:audioId
     })
     this.initAudio()
     this.calculateLeft(0)
@@ -331,7 +339,8 @@ Page({
           chapter:data.chapter,
           audioSrc:data.chapter[0].audio_url,//试看
           image_input:data.image_input,
-          audioName:data.chapter[0].name
+          audioName:data.chapter[0].name,
+          selectId:data.chapter[0].id
         })
         that.initAudio()
       },

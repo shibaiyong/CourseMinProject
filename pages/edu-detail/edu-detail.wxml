@@ -109,10 +109,8 @@
 <view class="tel" bindtap="call" data-phone="{{lessonDetail.train_tel}}">
 	培训咨询：{{lessonDetail.train_tel}}
 </view>	
-
-<image style="width:100rpx;height:100rpx;" src=""></image>
 <!-- <view class="public-line"></view> -->
-<view class="ipx-height"></view>
+<!-- <view class="ipx-height"></view> -->
 <view class="apply-c-height"></view>
 <view class="apply-c-bottom"></view>
 <view class="apply-c">  
