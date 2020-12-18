@@ -97,10 +97,10 @@ App({
     userInfo: null,
     token: "",
     isLogin: false,
-    baseUrl: "https://test.vvip333.com/api/", 
-    staticUrl2:'https://test.vvip333.com/static/img',
-    // baseUrl:"https://ywkt.yeoner.com/api/",
-    // staticUrl2:"https://ywkt.yeoner.com/static/img",
+    // baseUrl: "https://test.vvip333.com/api/",
+    // staticUrl2:'https://test.vvip333.com/static/img',
+    baseUrl:"https://ywkt.yeoner.com/api/",
+    staticUrl2:"https://ywkt.yeoner.com/static/img",
     staticUrl: "../../images",
     lesson_live_on:0,//0关闭直播 1打开直播 
     service_phone:""

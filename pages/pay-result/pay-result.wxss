@@ -2051,3 +2051,8 @@ view{
   margin: 0 auto 20rpx auto;
 }
 
+.payment-status .checkorder{
+	border: 1px solid #ff3700;
+	color:#ff3700;
+}
+

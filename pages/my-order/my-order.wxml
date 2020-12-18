@@ -21,8 +21,9 @@
 
 				<block wx:if="{{item.status==0}}">已取消</block>
 				<block wx:elif="{{item.status==1}}">待支付</block>
-				<block wx:elif="{{item.status==2&&item.name}}">已报名</block>
-				<block wx:else>待完善</block>
+				<block wx:elif="{{item.type!=2}}">已支付</block>
+				<block wx:elif="{{item.name}}">已报名</block>
+				<block wx:elif="{{!item.name}}">待完善</block>
 			</view>
 			<view class="time-pay" wx:if="{{item.status==1 && time[index].countDownSecond}}">
 				离订单关闭还剩
@@ -57,7 +58,7 @@
 				立即付款
 			</view>
 		</view>
-		<view class="edu-order-item-bottom" wx:if="{{item.status==2 && !item.name}}">
+		<view class="edu-order-item-bottom" wx:if="{{item.status==2 && !item.name && item.type==2}}">
 			<text class="order-public-btn order-btn-pay" catchtap="goJoinUp" data-lessonid="{{item.lesson_id}}" data-id="{{item.id}}">完善信息</text>
 		</view>
 	</view>

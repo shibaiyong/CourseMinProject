@@ -1,6 +1,6 @@
 <wxs module="utils">
 	var matchUrl = function(str){
-		var urlReg = getRegExp("(https?|ftp)?:\/\/\w+(\.\w+)+(\/\w+)*(\.\w+)*(\?\w+=[\w\u4e00-\u9fa5]+)?(&\w+=[\w\u4e00-\u9fa5]+)*");
+		var urlReg = getRegExp("(https?|ftp)?:\/\/\w+(\.\w+)+(\/\w+)*(\.\w+)*(\.mp4|\.mov|\.mov|\.m4v|\.m3u8|\.avi|\.3gp|\.webm)(\?\w+=[\w\u4e00-\u9fa5]+)?(&\w+=[\w\u4e00-\u9fa5]+)*");
 		var result = '';
 		if(str){
 			result = str.match(urlReg);
@@ -97,18 +97,39 @@
 	</view>
 </view>
 
+<!-- <view class="type-title-c" style="padding-bottom:30rpx;">
+	<view class="type-title">
+		培训收获
+	</view>
+	<view class="part">
+		
+		<view class="jiaolian-inc">
+			<rich-text nodes="{{lessonDetail.gains}}"></rich-text>
+		</view>
+
+		<view class="tel" bindtap="call" data-phone="{{lessonDetail.train_tel}}">
+			培训咨询：{{lessonDetail.train_tel}}
+		</view>
+		
+	</view>
+</view> -->
+
 <view class="type-title-c">
 	<view class="type-title">
 		培训收获
 	</view>
-</view>
-<view class="part" style="border-bottom:none;">
-	<rich-text nodes="{{lessonDetail.gains}}"></rich-text>
+
+	<view class="part" style="border-bottom:none;">
+		<rich-text nodes="{{lessonDetail.gains}}"></rich-text>
+	</view>
+
+	<view class="tel" bindtap="call" data-phone="{{lessonDetail.train_tel}}">
+	培训咨询：{{lessonDetail.train_tel}}
+	</view>
 </view>
 
-<view class="tel" bindtap="call" data-phone="{{lessonDetail.train_tel}}">
-	培训咨询：{{lessonDetail.train_tel}}
-</view>	
+
+
 <!-- <view class="public-line"></view> -->
 <!-- <view class="ipx-height"></view> -->
 <view class="apply-c-height"></view>

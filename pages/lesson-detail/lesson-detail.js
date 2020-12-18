@@ -40,6 +40,13 @@ Page({
   },
   goText(){
 
+    if (!this.data.isBuy) {
+      wx.showToast({
+        icon: "none",
+        title: "请先购买"
+      })
+      return false
+    }
     wx.redirectTo({
       url: '../lesson-read/lesson-read?id='+this.data.id
     })
@@ -47,6 +54,13 @@ Page({
   },
   goListen(){
 
+    if (!this.data.isBuy) {
+      wx.showToast({
+        icon: "none",
+        title: "请先购买"
+      })
+      return false
+    }
     wx.redirectTo({
       url: '../lesson-listen/lesson-listen?id='+this.data.id
     })
@@ -365,7 +379,7 @@ Page({
           })
           that.getdetailLesson(that.data.id)
           wx.reLaunch({
-            url: '../join-up/join-up?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type='+that.data.lessonDetail.type,
+            url: '../pay-result/pay-result?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type='+that.data.lessonDetail.type,
           })
         }else {
           let info ={}
@@ -379,7 +393,7 @@ Page({
             success (res) {
               that.getdetailLesson(that.data.id)
               wx.reLaunch({
-                url: '../join-up/join-up?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type='+that.data.lessonDetail.type,
+                url: '../pay-result/pay-result?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type='+that.data.lessonDetail.type,
               })
              },
             fail (res) { 

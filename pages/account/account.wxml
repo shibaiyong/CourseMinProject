@@ -108,7 +108,7 @@
 		</view>
 	</view>
 </view> -->
-<view class="mine">
+<view class="mine" bindtap="us">
 
 	<image src="{{static+'/mine.png'}}"></image>
 	

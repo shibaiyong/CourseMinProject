@@ -141,7 +141,7 @@ Page({
           })
           that.getdetailLesson(that.data.id)
           wx.reLaunch({
-            url: '../join-up/join-up?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type='+that.data.lessonDetail.type,
+            url: '../pay-result/pay-result?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type='+that.data.lessonDetail.type,
           })
         }else {
           let info ={}
@@ -155,7 +155,7 @@ Page({
             success (res) {
               that.getdetailLesson(that.data.id)
               wx.reLaunch({
-                url: '../join-up/join-up?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type='+that.data.lessonDetail.type,
+                url: '../pay-result/pay-result?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type='+that.data.lessonDetail.type,
               })
              },
             fail (res) { 

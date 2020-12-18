@@ -19,7 +19,8 @@ Page({
     isShare:false,
     isShowPoster:false,
     random:1,
-    isAutoplay:false
+    isAutoplay:false,
+    options:'options'
   },
   collect(e){
     const that =this
@@ -115,8 +116,12 @@ Page({
           // wx.reLaunch({
           //   url: '../pay-result/pay-result?id='+data.data.order_id,
           // })
+          // wx.reLaunch({
+          //   url: '../join-up/join-up?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type=2',
+          // })
+
           wx.reLaunch({
-            url: '../join-up/join-up?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type=2',
+            url: '../pay-result/pay-result?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type=2',
           })
         
         }else {
@@ -129,12 +134,10 @@ Page({
             signType:info.signType,
             paySign:info.paySign,
             success (res) {
-              // wx.reLaunch({
-              //   url: '../pay-result/pay-result?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type=2',
-              // })
               wx.reLaunch({
-                url: '../join-up/join-up?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type=2',
+                url: '../pay-result/pay-result?id='+data.data.order_id+'&edu_id=' + that.data.id + '&type=2',
               })
+              
              },
             fail (res) {}
           })
@@ -310,10 +313,10 @@ Page({
 
   //下载商品图片
   downLoadGoodImage(){
-    let goodsImageUrl = "https://test.vvip333.com/static/images/123.jpg";
-    let qrcodeUrl = "../../images/1.jpg";
-    //let goodsImageUrl = this.data.lessonDetail.image_input
-    //let code = this.data.code
+    // let goodsImageUrl = "https://test.vvip333.com/static/images/123.jpg";
+    // let qrcodeUrl = "../../images/1.jpg";
+    let goodsImageUrl = this.data.lessonDetail.image_input
+    let qrcodeUrl = this.data.code
     wx.showLoading({
       title: '生成中',
       mask: true
@@ -326,9 +329,8 @@ Page({
         wx.getImageInfo({
           src: qrcodeUrl,
           success: (res) => {
-            console.log(res)
             wx.hideLoading()
-            var qrcodeImage = '../../'+res.path
+            var qrcodeImage =res.path
             this.sharePosteCanvas(goodsImage,qrcodeImage) //生成海报
           },
           fail(){
@@ -340,7 +342,7 @@ Page({
           }
         })
       },
-      fail(){
+      fail(err){
         wx.showToast({
           title: '图片下载失败！',
           icon: 'none',
@@ -473,19 +475,28 @@ Page({
   setTitle(ctx){
     let title = this.data.lessonDetail.title
     ctx.beginPath()
-    ctx.setFontSize(16)
+    ctx.setFontSize(15)
     ctx.fillStyle="black"
     ctx.fillText(title, 10, 265)
   },
 
   onLoad: function (options) {
-    this.silenceAuth()
-    let {id} = options
+    let id = ''
+    // this.setData({
+    //   options: JSON.stringify(options),
+    // });
+    if(options.scene){
+      id = decodeURIComponent(options.scene).split('=')[1]
+      //id = options.scene.split('=')[1]
+    }else{
+      id = options.id
+    }
+    
     // id=33
     this.setData({
       id: parseInt(id),
     });
-
+    this.silenceAuth()
     this.createAppCode()
 
   },

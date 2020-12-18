@@ -29,12 +29,12 @@
 					<view class='itemCom'>{{status==2 ? '取消支付':msg}}</view>
 				</view> -->
 			</view>
-			<view class="joinup returnBnt bg-color" bindtap="goJoinUp">
+			<view class="joinup returnBnt bg-color" bindtap="goJoinUp" wx:if="{{type==2}}">
 				去报名
 			</view>
 			<!--失败时： 重新购买 -->
 			<view bindtap="goOrderDetails" wx:if="status==0">
-				<view bindtap="toOrderDetail" formType="submit" class='returnBnt cart-color' hover-class='none'>查看订单</view>
+				<view bindtap="toOrderDetail" formType="submit" class="returnBnt checkorder {{type!=2?'bg-color':''}}" hover-class='none'>查看订单</view>
 			</view>
 			<!-- <view bindtap="goOrderDetails" wx:if="order_pay_info.paid==0 && status==1">
 				<view class='returnBnt bg-color' hover-class='none'>重新购买</view>

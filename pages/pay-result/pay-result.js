@@ -11,11 +11,12 @@ Page({
     baseUrl:app.globalData.baseUrl,
     detail:{},
     id:0,
-    edu_id:''
+    edu_id:'',
+    type:2
   },
   goJoinUp(){
     wx.navigateTo({
-      url: '../join-up/join-up?id=' + this.data.id + '&edu_id=' + this.data.edu_id,
+      url: '../join-up/join-up?id=' + this.data.id + '&edu_id=' + this.data.edu_id + '&type=' + this.data.type
     })
   },
   goIndex(){
@@ -73,11 +74,13 @@ Page({
     });
   },
   onLoad: function (options) {
-    let {id,list,edu_id}=options
+    let {id,list,edu_id,type}=options
+    console.log(type)
     this.setData({
       id,
       list,
-      edu_id
+      edu_id,
+      type
     })
     this.getOrderDetail(id)
   },
